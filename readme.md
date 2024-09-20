@@ -65,9 +65,8 @@ This project helped me develop a deeper understanding of:
 
 To run this project locally:
 1. Clone the repository.
-2. Set up the API by following the instructions provided in the project.
-3. Run the Go backend server.
-4. Open the website in your browser to explore the various features.
+2. Run the Go backend server.
+3. Open the website in your browser to explore the various features.
 
 ---
 
