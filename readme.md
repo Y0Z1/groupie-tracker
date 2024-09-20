@@ -17,28 +17,21 @@
 ## Home Page
 _Display your application's homepage here, highlighting the overall design and layout._
 
-![Home Page](Images/Home.png)
-
----
-
-## Search Bar
-_Showcase the search bar with dynamic suggestions in action._
-
-![Search Bar](Images/Search-bar.png)
+![Home Page](Images/Home.gif)
 
 ---
 
 ## Artist Page
 _Show the artist page, including details like band members, first album, and more._
 
-![Artist Page](Images/Artist.png)
+![Artist Page](Images/Artist.gif)
 
 ---
 
 ## Geolocation Map (Artist Page)
 _Highlight the interactive geolocation map that displays concert locations._
 
-![Geolocation Map](Images/Geo.png)
+![Geolocation Map](Images/Geo.gif)
 
 ---
 
