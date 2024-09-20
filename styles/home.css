@@ -1,0 +1,217 @@
+body {
+    background: linear-gradient(to right, #36387d, #03083b, #23434d);
+}
+.logo {
+    background: linear-gradient(to right, #36387d, #03083b, #23434d);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    margin-bottom: 5%;
+    
+}
+.boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+}
+.box {
+    padding:0;
+    border:0;
+    display: flex;
+    height: 193px;
+    width: 460px;
+    border-radius: 25px;
+    background-color: #8080d7;
+    margin: 20px;
+    transition: 0.3s;
+    img {
+        height: 168px;
+        width: 168px;
+        border-radius: 22px;
+        margin: 12.5px;
+        transition: 0.3s;
+    }
+    h3 {
+        display: flex;
+        position: static;
+        color: white;
+        font-family: 'Outfit',sans-serif;
+        font-size: 1.7em;
+        font-weight: 600;
+        margin-bottom: 0;
+        text-align: left;
+        transition: 0.3s;
+        
+    }
+    .Year {
+        font-size: auto;
+        display: flex;
+        align-content: center;
+        text-align: left;
+        transition: 0.3s;
+    }
+    .Mem {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        margin-top: auto;
+        margin-bottom: 13px;
+        transition: 0.3s;
+    }
+    .Members {
+        text-align: left;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-content: center;
+        justify-items: center;
+        font-size: 1.0em;
+        column-gap: 5px;
+        color:  #8080d7;
+        margin: auto;
+        margin-left: 0;
+        max-height: 95px;
+        max-width: 247px;
+        transition: 0.3s;
+    }
+}
+.box:hover {
+    background-color: #2a255f;
+    cursor: pointer;
+    transition: 0.3s;
+    img {
+        margin:0;
+        height: 194px;
+        width: 194px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        transition: 0.3s;
+    }
+    h3 {
+        position: static;
+        color: white;
+        font-family: 'Outfit',sans-serif;
+        align-content: center;
+        font-size: 1.8em;
+
+    }
+    .Year {
+        font-size: 0.9em;
+        transition: 0.3s;
+    }
+    .Mem {
+        font-size: 1.1em;
+        transform: translateY(10px);
+        margin-top: auto;
+        transition: 0.3s;
+    }
+
+    h3,.Year{
+        transform: translateY(-15px);
+        transition: 0.2s;
+    }
+}
+.home {
+    font-family: 'Outfit', sans-serif;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    
+
+}
+.home:hover{
+    text-decoration: underline  #8080d7;
+    transition: 0.5s;
+}
+.Texts {
+    display: flex;
+    height: 193px;
+    flex-direction: column;
+    transform: translateX(10px);
+    color: white;
+    font-family: "Outfit",sans-serif;
+}
+.srch {
+    position: absolute;
+    right:11%;
+    top:29.5%;
+    width: 38px;
+    height: 45px;
+    z-index: 1000;
+}
+.sr{
+    position: absolute;
+    background-color: #8080d7;
+    transform: translate(-20px,3px);
+    width: 10px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    font-size: 1.2em;
+    color: #8080d7;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    right:11%;
+    transition: 0.5s;
+    z-index: -1000;
+}
+.sric{
+    position: absolute;
+    color: transparent;
+    padding: 0;
+    border: 0;
+    opacity: 0;
+    width: 24px;
+    height: 24px;
+    z-index: 1000;
+    transform: translate(-50%,45%);
+    cursor: default;
+    
+
+}
+.srch:focus-within {
+    input{
+    width: 300px;
+    transition: 0.5s;
+    color: white;
+    background-color: #2a255f;
+
+    }
+    .sric{
+        pointer-events: auto;
+        cursor: pointer;
+    }
+}
+.srch:hover{
+    input{
+    width: 300px;
+    color: white;
+    transition: 0.5s;
+    background-color: #2a255f;
+
+    }
+}
+.material-symbols-outlined {
+    opacity: 1;
+    position: absolute;
+    transform: translate(-50%,45%);
+    color: white;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}

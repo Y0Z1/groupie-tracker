@@ -1,0 +1,97 @@
+<head>
+    <title>{{.Name}}</title>
+    <link rel="icon" type="image/png" href="{{.Image}}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&family=Outfit:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/artist.css">
+    <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.7.0/dist/maplibre-gl.css' />
+    <script src='https://unpkg.com/maplibre-gl@4.7.0/dist/maplibre-gl.js'></script>
+</head>
+<body>
+    <div class="logo">
+        <span class="Year">{{.Year}}</span>
+        <h1>
+            <a href="/" class="home">
+                {{.Name}}
+            </a>
+        </h1>
+    </div>
+    <div class="Page">
+        <div class="image">
+            <div class="Memlen">{{.Memlen}}</div>
+            <img src="{{.Image}}" alt="Artist Image">
+        </div>
+        <div class="container">
+            <div class="Ytext">
+                {{.Text.YearText}}
+            </div>
+            <div class="Box">
+                <h3>Members:</h3> 
+                {{range .Text.Members}}
+                <div>{{.}}</div>
+                {{end}}
+            </div>
+        </div>
+        <div class="container">
+            <div class="Atext">
+                {{.Text.AlbumText}}
+            </div>
+            <div class="Box Abox">
+                <h3>{{.Text.Atext}}</h3>
+                <div class="con">
+                    {{range .Text.Concerts}}
+                    <div>[{{.}}]</div>
+                    {{end}}
+                </div>
+            </div>
+        </div>
+        <div class="Loctext">Concerts Map:
+        <div id="map" style="color:black;"></div></div>
+        <form id="MyForm">
+            <input type="hidden" name="Locations" value="{{range .Locations}}{{.}}/{{end}}">
+        </form>
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const map = new maplibregl.Map({
+                    container: 'map',
+                    style: 'https://api.maptiler.com/maps/streets/style.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL',
+                    center: [50.5577, 26.0667],
+                    zoom: 8
+                });
+                const geocoder = L.Control.Geocoder.nominatim();
+                const bounds = new maplibregl.LngLatBounds();
+                function processForm() {
+                    const form = document.querySelector('#MyForm');
+                    const inputValues = form.querySelector('input[name="Locations"]').value;
+                    const locations = inputValues.split('/').filter(location => location);
+                    return locations;
+                }
+                function addMarkers() {
+                    const locations = processForm();
+                    locations.forEach(location => {
+                        geocoder.geocode(location, function(results) {
+                            if (results && results.length > 0) {
+                                const result = results[0];
+                                const latLng = [result.center.lat, result.center.lng];
+                                const popup = new maplibregl.Popup({ offset: 25 })
+                                    .setText(location);
+                                new maplibregl.Marker()
+                                    .setLngLat([latLng[1], latLng[0]])
+                                    .setPopup(popup)
+                                    .addTo(map);
+                                bounds.extend([latLng[1], latLng[0]]);
+                                if (locations.indexOf(location) === locations.length - 1) {
+                                    map.fitBounds(bounds, { padding: 50 });
+                                }
+                            } else {
+                                console.error('No results found for:', location);
+                            }
+                        });
+                    });
+                }
+                addMarkers();
+            });
+        </script>
+    </div>
+</body>
